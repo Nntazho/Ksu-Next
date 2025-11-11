@@ -11,7 +11,7 @@ export KBUILD_BUILD_USER=anonim
 }
 
 # Clone SukiSU repo
-if [ ! -d "KernelSU" ]; then curl -LSs "https://raw.githubusercontent.com/Nntazho/KernelSU/master/kernel/setup.sh" | bash -; fi
+if [ ! -d "KernelSU" ]; then curl -LSs "https://raw.githubusercontent.com/Nntazho/KernelSU/master/kernel/setup.sh" | bash -s main; fi
 
 function KERNEL_COMPILE() {
 	if [ "$1" == "install" ]; then
