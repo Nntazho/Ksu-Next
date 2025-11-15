@@ -64,7 +64,7 @@ function install_kernel_patch()
     curl -L -O https://github.com/bmax121/KernelPatch/releases/download/0.12.2/kpimg-android
     chmod +x ./kptools-linux
     if [ -e "./kpimg-android" ]; then
-        mv ./kpimg-android ./kpimg-android
+        mv ./kpimg-android ./kpimg
     fi
     cd ..
 }
