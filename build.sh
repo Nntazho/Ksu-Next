@@ -8,6 +8,7 @@ export LC_ALL=C && export USE_CCACHE=1
 export ARCH=arm64
 export KBUILD_BUILD_HOST=linux
 export KBUILD_BUILD_USER="anonim"
+}
 
 function KERNEL_COMPILE() {
 	if [ "$1" == "install" ]; then
