@@ -327,6 +327,7 @@ int vfs_fallocate(struct file *file, int mode, loff_t offset, loff_t len)
 	file_start_write(file);
 	ret = file->f_op->fallocate(file, mode, offset, len);
 
+
 	/*
 	 * Create inotify and fanotify events.
 	 *
@@ -359,7 +360,7 @@ SYSCALL_DEFINE4(fallocate, int, fd, int, mode, loff_t, offset, loff_t, len)
  * We do this by temporarily clearing all FS-related capabilities and
  * switching the fsuid/fsgid around to the real ones.
  */
-SYSCALL_DEFINE3(faccessat, int, dfd, const char __user *, filename, int, mode)
+int do_faccessat(int dfd, const char __user *filename, int mode)
 {
 	const struct cred *old_cred;
 	struct cred *override_cred;
@@ -1272,3 +1273,4 @@ int stream_open(struct inode *inode, struct file *filp)
 }
 
 EXPORT_SYMBOL(stream_open);
+EXPORT_SYMBOL(do_faccessat);

@@ -22,8 +22,6 @@ function KERNEL_COMPILE() {
 		tar -xf clang.tar.gz -C clang && if [ -d clang/clang-* ]; then mv clang/clang-*/* clang; fi && rm -rf clang.tar.gz
 	fi
 
-[ -d "out" ] && rm -rf out || mkdir -p out
-
 make O=out ARCH=arm64 RMX2020_defconfig
 
 PATH="${PWD}/clang/bin:${PATH}" \
@@ -61,7 +59,7 @@ function install_kernel_patch()
     mkdir KernelPatchTools
     cd KernelPatchTools
     curl -L -O https://github.com/bmax121/KernelPatch/releases/download/0.12.2/kptools-linux
-    curl -L -O https://github.com/bmax121/KernelPatch/releases/download/0.12.2/kpimg-android
+    curl -L -O https://github.com/SukiSU-Ultra/SukiSU_KernelPatch_patch/releases/download/0.12.2/kpimg
     chmod +x ./kptools-linux
     if [ -e "./kpimg-android" ]; then
         mv ./kpimg-android ./kpimg
